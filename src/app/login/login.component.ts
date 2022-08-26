@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,17 +15,43 @@ export class LoginComponent implements OnInit {
   public emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   public matcher: boolean = false;
   public hide: boolean = true;
+  public formGrupo: FormGroup;
 
-  constructor(private _router: Router) {
+  constructor(
+    private _router: Router,
+    private _formBuilder: FormBuilder) {
 
   }
 
   ngOnInit(): void {
-    // $('.modal-trigger').leanModal();
+    this.formBuilder();
   }
 
-  public clickLogin(): void {
-    this._router.navigate(['/tutorial']);
+  public showPassword(): void {
+    this.hide = !this.hide;
+  }
+
+  public formBuilder(): void {
+    this.formGrupo = this._formBuilder.group(
+      {
+        login: ['', [Validators.required, Validators.maxLength(120)]],
+        password: ['', [Validators.required, Validators.maxLength(8)]],
+
+
+
+
+
+        
+      }
+    );
+  }
+
+  public onSelect(event): void {
+    console.log('selecionado');
+  }
+
+  public deleteItem(): void {
+    console.log('deletado');
   }
 
 }

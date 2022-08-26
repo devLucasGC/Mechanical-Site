@@ -1,0 +1,30 @@
+<!-- | async -->
+<ngx-datatable class="material striped m-12" [rows]="rows" [columnMode]="'force'" [headerHeight]="48"
+    [footerHeight]="56" [rowHeight]="'auto'" [scrollbarH]="true" [reorderable]="true" [limit]="8"
+    [selectionType]="'checkbox'" [selected]="selected" [selectAllRowsOnPage]="false" [displayCheck]="displayCheck"
+    (select)='onSelect($event)'
+    [messages]="{emptyMessage: 'Nenhuma item encontrado.', totalMessage: 'registros encontrados.'}">
+
+    <ngx-datatable-column [width]="60" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+        [resizeable]="false">
+
+        <ng-template ngx-datatable-header-template let-value="value">
+            <button *ngIf="selected.length > 0" mat-icon-button color="primary"
+                matTooltip="Excluir avaliação(ões) selecionado(s)" [matTooltipPosition]="'after'"
+                [matTooltipShowDelay]="500" (click)="deleteItem()">
+                <mat-icon class="red-fg">delete</mat-icon>
+            </button>
+        </ng-template>
+
+        <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+            let-onCheckboxChangeFn="onCheckboxChangeFn">
+            <mat-checkbox [checked]="isSelected" color="primary" (change)="onCheckboxChangeFn($event)"></mat-checkbox>
+        </ng-template>
+
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.DataField}}
+        </ng-template>
+
+    </ngx-datatable-column>
+
+</ngx-datatable>

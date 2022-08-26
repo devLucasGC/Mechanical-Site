@@ -14,12 +14,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
+import { ListComponentComponent } from './home/components/list-component/list-component.component';
+import { FormComponentComponent } from './home/components/form-component/form-component.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TutorialComponent
+    TutorialComponent,
+    ListComponentComponent,
+    FormComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,26 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatIconModule,
     FlexLayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule,
+    NgxDatatableModule
+    // MatTooltipModule,
+    // NgxDatatableModule,
+    // MatInputModule,
+    // MatButtonModule,
+    // MatCheckboxModule,
+    // MatRadioModule,
+    // MatDividerModule,
+    // MatSelectModule,
+    // MatDatepickerModule,
+    // MatTabsModule,
+    // MatMenuModule,
+    // MatProgressBarModule,
+    // NgxMaskModule,
+    // NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    // MatExpansionModule,
+    // MatDialogModule,
+    // MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
