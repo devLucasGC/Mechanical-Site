@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<div class="example-container" *ngIf="_router.url !== '/login'">
+    <mat-toolbar style="background-color: #172236; color: white;" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="example-app-name">Click MOTOR</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container">
+        <mat-sidenav #snav mode="over" fixedTopGap="56">
+            <mat-nav-list>
+                <a style="color: #172236;" mat-list-item (click)="selection(nav.nome)" *ngFor="let nav of fillerNav">{{ nav.nome }}</a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <app-home *ngIf="selected === 'Home'"></app-home>
+            <app-cadastro *ngIf="selected === 'Cadastro'"></app-cadastro>
+            <app-banco *ngIf="selected === 'Banco'"></app-banco>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+<router-outlet *ngIf="_router.url === '/login'"></router-outlet>

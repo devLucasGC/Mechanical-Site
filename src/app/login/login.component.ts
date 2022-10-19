@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import $ from "jquery";
 
 @Component({
   selector: 'app-login',
@@ -27,8 +28,14 @@ export class LoginComponent implements OnInit {
     this.formBuilder();
   }
 
-  public showPassword(): void {
-    this.hide = !this.hide;
+  public focusIn(): void {
+    $('div#formWrapper').addClass('darken-bg');
+    $('div.logo').addClass('logo-active');
+  }
+
+  public focusOut(): void {
+    $('div#formWrapper').removeClass('darken-bg');
+    $('div.logo').removeClass('logo-active');
   }
 
   public formBuilder(): void {
@@ -40,12 +47,8 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  public onSelect(event): void {
-    console.log('selecionado');
-  }
-
-  public deleteItem(): void {
-    console.log('deletado');
+  public logar(): void {
+    this._router.navigate(['home']);
   }
 
 }
