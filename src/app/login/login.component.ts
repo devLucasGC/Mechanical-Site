@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import $ from "jquery";
+import { HomeService } from '../home.service';
+import { DialogOverviewExampleDialog } from './components/dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +22,21 @@ export class LoginComponent implements OnInit {
   public formGrupo: FormGroup;
 
   constructor(
-    private _router: Router,
-    private _formBuilder: FormBuilder) {
+    private _formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    private _homeService: HomeService) {
 
+  }
+
+  public openDialog(password: boolean): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: { password: password },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngOnInit(): void {
@@ -48,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   public logar(): void {
-    this._router.navigate(['home']);
+    this._homeService.login(this.formGrupo.getRawValue());
   }
 
 }

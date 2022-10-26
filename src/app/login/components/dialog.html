@@ -1,0 +1,51 @@
+<div *ngIf="data.password" style="width: 100%;">
+    <h1 mat-dialog-title>Mude sua senha</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="formGrupo">
+            <mat-form-field appearance="outline">
+                <mat-label>Digite seu usuario</mat-label>
+                <input matInput formControlName="user">
+            </mat-form-field>
+
+            <p></p>
+            <mat-form-field appearance="outline">
+                <mat-label>Nova senha</mat-label>
+                <input matInput formControlName="senha1">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nova senha novamente</mat-label>
+                <input matInput formControlName="senha2">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center none" mat-dialog-actions>
+        <button (click)="mudarSenha()" color="primary" mat-raised-button [disabled]="validarSenha()">
+            Mudar Senha
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!data.password">
+    <h1 mat-dialog-title>Cadastre-se</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="formGrupoCadastro">
+            <mat-form-field appearance="outline">
+                <mat-label>Digite seu usuario</mat-label>
+                <input matInput formControlName="user">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Digite sua senha</mat-label>
+                <input matInput formControlName="senha">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div mat-dialog-actions fxLayout="column" fxLayoutAlign="center none" mat-dialog-actions>
+        <button [disabled]="!formGrupoCadastro.valid" color="primary" mat-raised-button (click)="criarConta()">Criar
+            conta
+        </button>
+    </div>
+</div>

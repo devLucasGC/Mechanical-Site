@@ -23,7 +23,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CommonModule } from '@angular/common';
 import { BancoComponent } from './banco/banco.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-
+import { DialogOverviewExampleDialog } from './login/components/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FormComponentComponent,
     HomeComponent,
     BancoComponent,
-    CadastroComponent
+    CadastroComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FlexLayoutModule,
     MatButtonModule,
     CommonModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

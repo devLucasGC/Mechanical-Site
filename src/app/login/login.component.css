@@ -8,6 +8,10 @@ body {
 
 }
 
+.onHooverSelect {
+    cursor: pointer;
+}
+
 a {
     color: #172236;
     text-decoration: none;

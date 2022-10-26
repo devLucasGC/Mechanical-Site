@@ -67,11 +67,17 @@
                     <p class="formLabel">Senha</p>
                     <input type="password" name="password" id="password" class="form-style" formControlName="password"
                         (click)="focusIn()" (blur)="focusOut()" />
-                    <p><a href="#"><small>Forgot Password ?</small></a></p>
+                    <p>
+                        <mat-label class="onHooverSelect" (click)="openDialog(true)"><small>Esqueceu sua senha?</small>
+                        </mat-label>
+                    </p>
                 </div>
 
                 <div class="form-item">
-                    <p class="pull-left"><a href="#"><small>Cadastre-se</small></a></p>
+                    <p class="pull-left">
+                        <mat-label class="onHooverSelect" (click)="openDialog(false)"><small>Cadastre-se</small>
+                        </mat-label>
+                    </p>
                     <input type="submit" class="login pull-right" (click)="logar()" value="Entrar">
                     <div class="clear-fix"></div>
                 </div>
@@ -79,43 +85,3 @@
         </div>
     </div>
 </body>
-
-<!-- <div class="body-login">
-    <div fxLayout="row" fxLayoutAlign="center center">
-        <div fxLayout="column" fxLayoutAlign="space-around center">
-            <div class="login-box">
-                <div fxLayout="column" fxLayoutAlign="space-around center">
-                    <img width="250" height="250" src="../../assets/img/MOTOR (2).png" alt="">
-                    <mat-label>
-                        <h1>CLICK MOTOR</h1>
-                    </mat-label>
-
-
-
-                    <form [formGroup]="formGrupo">
-                        <div fxLayout="column" fxLayoutAlign="space-around none">
-                            <mat-form-field appearance="outline" color="accent" defaultColor="accent">
-                                <mat-label>Login</mat-label>
-                                <input matInput placeholder="Insira seu login" formControlName="login"
-                                    style="color: yellow;">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" color="accent">
-                                <mat-label>Enter your password</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" style="color: yellow;">
-                                <button mat-icon-button matSuffix (click)="showPassword()">
-                                    <mat-icon color="accent">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-                                </button>
-                            </mat-form-field>
-
-                            <button mat-button mat-raised-button color="">Entrar</button>
-                        </div>
-                    </form>
-
-
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
