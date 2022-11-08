@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list-component',
@@ -9,19 +9,17 @@ export class ListComponentComponent implements OnInit {
 
   constructor() { }
 
-  public rows = [{'nome': "Gabriel", 'idade': 24}];
-  public selected = {};
-  public displayCheck;
+  public selected = [];
+  public dataSource: any[] = [];
+  public displayedColumns: string[] = ['codigo', 'nome', 'quantidade', 'preco', 'fornecedor', 'telefone'];
+
+  @Input() rows: any;
+  @Output() onDeleteFornecedor = new EventEmitter();
 
   ngOnInit(): void {
-  }
-
-  public onSelect(event): void {
-    console.log('selecionado');
-  }
-
-  public deleteItem(): void {
-    console.log('deletado');
+    this.dataSource = [
+      // { codigo: '', nome: '', quantidade: '', preco: '', fornecedor: '', telefone: '' }
+    ];
   }
 
 }

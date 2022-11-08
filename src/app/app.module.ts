@@ -26,6 +26,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { DialogOverviewExampleDialog } from './login/components/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FornecedorListComponent } from './cadastro/components/fornecedor-list/fornecedor-list.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     BancoComponent,
     CadastroComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    FornecedorListComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CommonModule,
     NgxDatatableModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
