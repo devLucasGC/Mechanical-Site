@@ -8,18 +8,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ListComponentComponent implements OnInit {
 
   constructor() { }
+  public displayedColumns: string[] = ['id', 'nome', 'quantidade', 'preco', 'fornecedor', 'telefone', 'button'];
 
-  public selected = [];
-  public dataSource: any[] = [];
-  public displayedColumns: string[] = ['codigo', 'nome', 'quantidade', 'preco', 'fornecedor', 'telefone'];
-
+  @Output() onPatchValue = new EventEmitter();
   @Input() rows: any;
-  @Output() onDeleteFornecedor = new EventEmitter();
 
-  ngOnInit(): void {
-    this.dataSource = [
-      // { codigo: '', nome: '', quantidade: '', preco: '', fornecedor: '', telefone: '' }
-    ];
+  ngOnInit(): void { }
+
+  public onUpdate(element: any) {
+    this.onPatchValue.emit(element);
   }
 
 }

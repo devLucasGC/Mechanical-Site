@@ -54,12 +54,21 @@ export class LoginComponent implements OnInit {
   }
 
   public formBuilder(): void {
-    this.formGrupo = this._formBuilder.group(
-      {
-        login: ['', [Validators.required, Validators.maxLength(120)]],
-        password: ['', [Validators.required, Validators.maxLength(8)]],
-      }
-    );
+    if (JSON.parse(localStorage.getItem('usuarioLogado')) && JSON.parse(localStorage.getItem('senhaLogada'))) {
+      this.formGrupo = this._formBuilder.group(
+        {
+          login: [JSON.parse(localStorage.getItem('usuarioLogado')), [Validators.required, Validators.maxLength(120)]],
+          password: [JSON.parse(localStorage.getItem('senhaLogada')), [Validators.required, Validators.maxLength(8)]],
+        }
+      );
+    } else {
+      this.formGrupo = this._formBuilder.group(
+        {
+          login: ['', [Validators.required, Validators.maxLength(120)]],
+          password: ['', [Validators.required, Validators.maxLength(8)]],
+        }
+      );
+    }
   }
 
   public logar(): void {

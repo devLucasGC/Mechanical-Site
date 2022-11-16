@@ -1,31 +1,39 @@
 <div fxLayout="row" fxLayoutAlign="start start">
     <form [formGroup]="form" fxFlex="100">
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
             <mat-form-field fxFlex="50" [floatLabel]="true">
-                <input matInput placeholder="Nome do fornecedor" formControlName="nome">
+                <input matInput placeholder="Nome da peça" formControlName="nome">
             </mat-form-field>
 
-            <mat-form-field fxFlex="30" [floatLabel]="true">
-                <input matInput placeholder="Nome fantasia" formControlName="codigo">
+            <mat-form-field fxFlex="25" [floatLabel]="true">
+                <input matInput placeholder="Quantidade" formControlName="quantidade">
             </mat-form-field>
 
-            <mat-form-field fxFlex="20" [floatLabel]="true">
-                <input matInput placeholder="E-mail" type="email" formControlName="quantidade">
+            <mat-form-field fxFlex="25" [floatLabel]="true">
+                <input matInput placeholder="Preço" formControlName="preco">
             </mat-form-field>
         </div>
 
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutGap="10px">
-            <mat-form-field fxFlex="20" [floatLabel]="true">
-                <input matInput placeholder="Preço" formControlName="preco">
-            </mat-form-field>
-
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
             <mat-form-field fxFlex="50" [floatLabel]="true">
                 <input matInput placeholder="fornecedor" formControlName="fornecedor">
             </mat-form-field>
 
-            <mat-form-field fxFlex="30" [floatLabel]="true">
+            <mat-form-field fxFlex="50" [floatLabel]="true">
                 <input matInput placeholder="telefone" formControlName="telefone">
             </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+            <button matTooltip="Adicionar peça" mat-fab style="color: white; background-color: green;"
+                [disabled]="form.pristine || form.invalid" (click)="addPeca()">
+                <mat-icon>save</mat-icon>
+            </button>
+
+            <button matTooltip="Excluir peça" mat-fab color="warn" (click)="deletePeca()"
+                [disabled]="!form.get('id').value">
+                <mat-icon>delete</mat-icon>
+            </button>
         </div>
     </form>
 </div>
